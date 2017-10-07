@@ -32,6 +32,8 @@ total_con = sum(len(user['friends']) for user in users)
 media_con = total_con / len(users)
 print(media_con)
 
+print('Testando commit...')
+
 
 
 
