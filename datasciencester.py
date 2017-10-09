@@ -15,28 +15,26 @@ users = [
 ''' Tuplas com os relacionamentos entre os usuários '''
 friendships = [(0, 1), (0, 2), (1, 2), (1, 3), (2, 3), (3, 4), (4, 5), (5, 6), (5, 7), (6, 8), (7, 8), (8, 9)]
 
-for user in users:
-    user['friends'] = []
+
 
 ''' Cria lista de amigos para cada usuário'''
-for i, j in friendships:
-    print(users[i]['name'], "friend of", users[j]['name'])
-    users[i]['friends'].append(j)
-    users[j]['friends'].append(i)
+def criar_lista_amigos():
+    for user in users:
+        user['friends'] = []
+    
+    for i, j in friendships:
+        print(users[i]['name'], "friend of", users[j]['name'])
+        users[i]['friends'].append(j)
+        users[j]['friends'].append(i)
 
 ''' Soma número total de conexões '''
-total_con = 0
-total_con = sum(len(user['friends']) for user in users)
+def obter_total_conexoes():    
+    return sum(len(user['friends']) for user in users)
 
 ''' Cálculo número médio de conexões '''
-media_con = total_con / len(users)
-print(media_con)
+def calcular_media_conexoes():
+    total_con = obter_total_conexoes()
+    return total_con / len(users)
 
-print('Testando commit...')
-
-
-
-
-
-
-
+criar_lista_amigos()
+print("Média de conxões: ", calcular_media_conexoes())
