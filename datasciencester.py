@@ -34,5 +34,14 @@ def calcular_media_conexoes():
     total_con = obter_total_conexoes()
     return total_con / len(users)
 
+
+''' Obtem sugestoes de conexoes '''
+def obter_sugest_conexoes(user_id):
+    lista = (tuple(fof for fof in users[friend_id]['friends'] if fof != user_id) 
+                       for friend_id in users[user_id]['friends'])
+    
+    return tuple(lista)
+
 criar_lista_amigos()
 print("Média de conxões: ", calcular_media_conexoes())
+obter_sugest_conexoes(0)
